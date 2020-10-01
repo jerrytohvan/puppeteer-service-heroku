@@ -25,4 +25,3 @@ module.exports = function (url) {
     })();
   });
 };
-//https://github.com/smartlyio/creative-audit/blob/master/web/src/workers/adCapture.ts
