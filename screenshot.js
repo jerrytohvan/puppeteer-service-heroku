@@ -12,7 +12,7 @@ module.exports = function (url) {
         waitUntil: ["load", "networkidle0", "domcontentloaded"],
       });
 
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 8000));
 
       const selector =
         "#fb-ad-preview > div > div > div:nth-child(1) > div > div";
