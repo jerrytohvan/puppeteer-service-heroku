@@ -32,12 +32,14 @@ module.exports = function (url) {
       const buffer = await page.screenshot({
         path: "element.png",
         type: "png",
-        clip: {
-          x: rect.left,
-          y: rect.top,
-          width: rect.width + padding,
-          height: rect.height + padding,
-        },
+        fullPage: true,
+
+//         clip: {
+//           x: rect.left,
+//           y: rect.top,
+//           width: rect.width + padding,
+//           height: rect.height + padding,
+//         },
       });
 
       await browser.close();
