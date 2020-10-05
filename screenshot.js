@@ -15,11 +15,13 @@ module.exports = function (url,preview_type) {
       await new Promise((resolve) => setTimeout(resolve, 8000));
       
       var padding = 75;
+      var left,top = 0;
       var selector =
         "#fb-ad-preview > div > div > div:nth-child(1) > div > div";
         if(preview_type == "MOBILE_FEED_STANDARD"){
           selector = "#ad-preview-mobile-feed-standard > div";
-          padding = 120;
+          padding = 20;
+          left = 340;
         }   
 
       const rect = await page.evaluate((selector) => {
@@ -32,14 +34,14 @@ module.exports = function (url,preview_type) {
         throw Error(
           `Could not find element that matches selector: ${selector}.`
         );
-      
+      console.log(rect.left + ", " + rect.top);
       await page.setViewport({ width: 1024, height: 800 });
       const buffer = await page.screenshot({
           path: "element.png",
           type: "png",
           clip: {
-            x: rect.left,
-            y: rect.top,
+            x: left !== 0 ? left : rect.left,
+            y: top !== 0 ? top : rect.top,
             width: rect.width + padding ,
             height: rect.height + padding,
           },
