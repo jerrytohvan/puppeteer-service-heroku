@@ -6,9 +6,10 @@ const screenshot = require('./screenshot')
 app.get('/', (req, res) => res.status(200).json({ status: 'ok' }))
 
 app.get('/screenshot', (req, res) => {
-  var url = req.query.url + "&t=" + req.query.t
+  var url = req.query.url + "&t=" + req.query.t 
+  var preview_type=req.query.preview_type
   ;(async () => {
-    const buffer = await screenshot(url)
+    const buffer = await screenshot(url,preview_type)
     res.setHeader('Content-Disposition', 'attachment; filename="screenshot.png"')
     res.setHeader('Content-Type', 'image/png')
     res.send(buffer)
