@@ -34,7 +34,7 @@ module.exports = function (url,preview_type) {
         throw Error(
           `Could not find element that matches selector: ${selector}.`
         );
-      console.log(rect.left + ", " + rect.top);
+
       await page.setViewport({ width: 1024, height: 800 });
       const buffer = await page.screenshot({
           path: "element.png",
