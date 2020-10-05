@@ -16,7 +16,7 @@ module.exports = function (url) {
 
       const selector =
         "#fb-ad-preview > div > div > div:nth-child(1) > div > div";
-      const padding = 0;
+      const padding = 100;
 
       const rect = await page.evaluate((selector) => {
         const element = document.querySelector(selector);
@@ -33,10 +33,10 @@ module.exports = function (url) {
         path: "element.png",
         type: "png",
         clip: {
-          x: rect.left - padding,
-          y: rect.top - padding,
-          width: rect.width + padding * 2,
-          height: rect.height + padding * 2,
+          x: rect.left,
+          y: rect.top,
+          width: rect.width + padding,
+          height: rect.height + padding,
         },
       });
 
