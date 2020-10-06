@@ -15,7 +15,8 @@ module.exports = function (url,preview_type) {
       await new Promise((resolve) => setTimeout(resolve, 8000));
       
       var padding = 75;
-      var left,top = 0;
+      var left = 0;
+      var top = 0;
       var selector =
         "#fb-ad-preview > div > div > div:nth-child(1) > div > div";
         if(preview_type == "MOBILE_FEED_STANDARD"){
