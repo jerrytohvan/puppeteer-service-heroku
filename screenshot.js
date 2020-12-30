@@ -20,9 +20,8 @@ module.exports = function (url,preview_type='') {
       var selector =
         "#fb-ad-preview > div > div > div:nth-child(1) > div > div";
       if(preview_type == "MOBILE_FEED_STANDARD"){
-        selector = "#ad-preview-mobile-feed-standard > div";
+        selector = "#fb-ad-preview > div > div";
         padding = 20;
-        left = 340;
       } 
         
       if(!preview_type){ // adlib case
