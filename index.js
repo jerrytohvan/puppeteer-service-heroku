@@ -7,10 +7,11 @@ app.get('/', (req, res) => res.status(200).json({ status: 'ok' }))
 app.get('/screenshot', (req, res) => {
   var url = req.query.url + "&t=" + req.query.t 
   var preview_type=req.query.preview_type
+  var gif= (req.query.gif === undefined || req.query.gif.toLowerCase() === 'false' ? false : true)
   ;(async () => {
-    const buffer = await screenshot(url,preview_type)
-    res.setHeader('Content-Disposition', 'attachment; filename="screenshot.png"')
-    res.setHeader('Content-Type', 'image/png')
+    const buffer = await screenshot(url,preview_type,gif)
+    res.setHeader('Content-Disposition', `attachment; filename=${gif ? "screenshot.gif" : "screenshot.png"}`)
+    res.setHeader('Content-Type', gif ? 'image/gif' : 'image/png')
     res.send(buffer)
   })()
 })
