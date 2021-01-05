@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git"
+    "gifencoder": "^2.0.1",
+    "png-js": "^1.0.0",
+    "puppeteer": "^5.5.0"
   }
 }
