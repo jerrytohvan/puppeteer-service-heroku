@@ -20,7 +20,7 @@ app.get('/adlibscreenshot', (req, res) => {
   var ad_id = req.query.id
   var url = 'https://www.facebook.com/ads/library/?id=' + ad_id 
   ;(async () => {
-    const buffer = await screenshot(url)
+    const buffer = await screenshot(url,null,false,ad_id);
     res.setHeader('Content-Disposition', 'attachment; filename="screenshot.png"')
     res.setHeader('Content-Type', 'image/png')
     res.send(buffer)
