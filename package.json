@@ -14,7 +14,6 @@
     "express": "^4.17.1",
     "gifencoder": "^2.0.1",
     "png-js": "^1.0.0",
-    "puppeteer": "^5.5.0",
-    "puppeteer-core": "^1.9.0"
+    "puppeteer": "^5.5.0"
   }
 }
