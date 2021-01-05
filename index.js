@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const port = process.env.PORT || 3131
 const screenshot = require('./screenshot')
@@ -12,7 +13,7 @@ app.get('/screenshot', (req, res) => {
     const buffer = await screenshot(url,preview_type,gif)
     res.setHeader('Content-Disposition', `attachment; filename=${gif ? "screenshot.gif" : "screenshot.png"}`)
     res.setHeader('Content-Type', gif ? 'image/gif' : 'image/png')
-    res.send(buffer)
+    gif ? res.sendFile( path.join(__dirname, 'test.gif')) : res.send(buffer) 
   })()
 })
 
